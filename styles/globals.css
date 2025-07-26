@@ -1,0 +1,212 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: 'Century Gothic', sans-serif;
+  background-color: #f6f6f6;
+  color: #000;
+}
+
+/* NAVIGACE */
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 80px; /* Zvýšeno pro větší odsazení */
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 80px; /* Mezera mezi položkami */
+  list-style: none;
+}
+
+nav li {
+  position: relative;
+}
+
+nav a {
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  font-weight: 400;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 1px; /* jemná linka */
+    left: 0;
+    bottom: 0;
+    background-color: #000;
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Kontejner pro obsah */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Hlavní sekční nadpisy */
+.section-header {
+    text-align: center;
+    margin-top: 120px;
+    margin-bottom: 40px;
+}
+
+.section-header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.section-header p {
+    font-size: 1rem;
+    color: #333;
+}
+
+/* Reference galerie */
+.reference-gallery {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.reference-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.reference-image {
+  width: 300px;
+  height: 225px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.reference-item:hover .reference-image {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
+}
+
+.reference-item:hover .overlay {
+  opacity: 1;
+}
+
+/* Čtverce pro Reference */
+.squares-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 80px;
+    flex-wrap: wrap;
+}
+
+.square {
+    width: 200px;
+    height: 200px;
+    background-color: #3498db;
+    border-radius: 8px;
+    opacity: 0;
+    transform: scale(0.8);
+    animation: fadeInScale 0.6s ease forwards;
+}
+
+.square:nth-child(1) { animation-delay: 0.2s; }
+.square:nth-child(2) { animation-delay: 0.4s; }
+.square:nth-child(3) { animation-delay: 0.6s; }
+.square:nth-child(4) { animation-delay: 0.8s; }
+
+.square:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* O NÁS - obdélníky */
+.photo-rectangle {
+    width: 200px;
+    height: 300px; /* 1,5× vyšší než čtverec */
+    background-color: #3498db; /* Rezervní barva */
+    border-radius: 8px;
+    overflow: hidden; /* Důležité pro ořez obrázku */
+    opacity: 0;
+    transform: scale(0.8);
+    animation: fadeInScale 0.6s ease forwards;
+}
+
+.photo-rectangle:nth-child(1) { animation-delay: 0.2s; }
+.photo-rectangle:nth-child(2) { animation-delay: 0.4s; }
+
+.photo-rectangle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Obrázek vyplní obdélník bez deformace */
+    border-radius: 8px;
+}
+
+/* Animace */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.hero-wrapper {
+  width: 100%;
+}
+
+.hero-section {
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 1200px; /* Původně 600px → dvojnásobek */
+  background-color: #3498db;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 3rem;
+  font-weight: bold;
+}
